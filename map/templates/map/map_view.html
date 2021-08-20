@@ -2,15 +2,16 @@
 {% load static %}
 
 {% block title %}
+Übersicht
 {% endblock %}
 
 
 {% block content %}
 <div class="buttons">
   {% if not request.user.is_authenticated %}
-  <a class="btn" href="/auth/">Login</a>
+  <a class="btn" href="/auth/">Anmelden</a>
   {% else %}
-  <a class="btn" href="{% url 'map:create_patch' %}">Create</a>
+  <a class="btn" href="{% url 'map:create_patch' %}">Eintragen</a>
   {% endif %}
   {% endblock %}
 </div>
