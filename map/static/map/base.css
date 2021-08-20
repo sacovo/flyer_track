@@ -52,6 +52,8 @@ button.btn {
   padding: 0.6em 1.8em;
   text-decoration: none;
   box-shadow: #00000069 0px 0px 8px 0px;
+
+  margin-top: 0.2em;
 }
 
 .controlPanel {
@@ -112,6 +114,11 @@ button.btn {
   margin: 0 1em;
   width: 80%;
   max-width: 530px;
+
+  /* Inline #8 | http://127.0.0.1:8000/delete/17/ */
+
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .fields {
