@@ -71,6 +71,11 @@ map.addControl(
 
 let patchLayer = null;
 
+function onEachFeature(feature, layer) {
+  const popupContent = `<p>${feature.properties.flyer_count} Bierdeckel</p>`;
+
+  layer.bindPopup(popupContent);
+}
 const updatePatches = () => {
   const bounds = map.getBounds();
   const bbox = bounds.toBBoxString();
@@ -81,7 +86,9 @@ const updatePatches = () => {
       if (patchLayer) {
         patchLayer.remove();
       }
-      patchLayer = L.geoJson(geoJson).addTo(map);
+      patchLayer = L.geoJson(geoJson, {
+        onEachFeature: onEachFeature,
+      }).addTo(map);
     });
 };
 
