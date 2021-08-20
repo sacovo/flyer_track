@@ -1,4 +1,4 @@
-{% load static %}
+{% load static i18n %}
 <!DOCTYPE html>
 <html lang="{{ request.LANGUAGE_CODE }}">
   <head>
@@ -11,16 +11,29 @@
     <script src="https://kit.fontawesome.com/e29b2b8f8c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'css/leaflet-search.css' %}"/>
     <link rel="stylesheet" href="{% static 'map/base.css' %}"/>
-    <title>{% block title %}{% endblock %} - Bierdeckelkarte</title>
+    <title>{% block title %}{% endblock %} - {% trans 'Verteilmap' %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;500;800&display=swap" rel="stylesheet"> 
   </head>
   <body>
+    {% block highlight %}
+    <div class="hidden" id="highlight" data-id="" data-color="" data-lat="" data-lng=""></div>
+    {% endblock %}
     <div id="map"></div>
-    <div class="hidden" id="bottomRightContent">
-    </div>
+    <div id="userId" data-id="{{request.user.pk}}" class="hidden"></div>
     <div class="controlPanel">
       {% block content %}
       {% endblock %}
     </div>
+
+    <script>
+      const i18n = {
+        objName: "{% trans 'Untersetzer' %}",
+        edit: "{% trans 'Bearbeiten' %}",
+        delete: "{% trans 'Löschen' %}",
+      };
+    </script>
 
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
             integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="

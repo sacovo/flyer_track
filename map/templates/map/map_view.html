@@ -1,17 +1,24 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static l10n i18n %}
 
 {% block title %}
-Übersicht
+{% trans 'Übersicht' %}
 {% endblock %}
 
+{% block highlight %}
+{% if object %}
+<div class="hidden" id="highlight" data-id="{{object.pk}}" data-color="blue" data-lat="{{y|unlocalize}}" data-lng="{{x|unlocalize}}"></div>
+{% else %}
+{{block.super}}
+{% endif %}
+{% endblock %}
 
 {% block content %}
 <div class="buttons">
   {% if not request.user.is_authenticated %}
-  <a class="btn" href="/auth/">Anmelden</a>
+  <a class="btn" href="/auth/">{% trans 'Anmelden' %}</a>
   {% else %}
-  <a class="btn" href="{% url 'map:create_patch' %}">Eintragen</a>
+  <a class="btn" href="{% url 'map:create_patch' %}">{% trans 'Eintragen' %}</a>
   {% endif %}
-  {% endblock %}
 </div>
+{% endblock %}

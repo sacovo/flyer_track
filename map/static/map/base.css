@@ -111,6 +111,7 @@ button.btn {
 .formInner {
   margin: 0 1em;
   width: 80%;
+  max-width: 530px;
 }
 
 .fields {

@@ -1,0 +1,97 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-08-20 15:44+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: map/models.py:10
+msgid "Eigentümer*in"
+msgstr ""
+
+#: map/models.py:11
+msgid "Bereich"
+msgstr ""
+
+#: map/models.py:13
+msgid "Anzahl Untersetzer"
+msgstr "Nombre de dessous de verre distribués"
+
+#: map/models.py:14
+msgid "Datum"
+msgstr "Date"
+
+#: map/models.py:16
+msgid "Status"
+msgstr ""
+
+#: map/models.py:18
+msgid "Wurden die Flyer bereits verteilt?"
+msgstr ""
+
+#: map/templates/base.html:14
+msgid "Verteilmap"
+msgstr ""
+
+#: map/templates/base.html:32
+msgid "Untersetzer"
+msgstr "dessous de verre"
+
+#: map/templates/base.html:33 map/templates/map/flyerpatch_update.html:3
+msgid "Bearbeiten"
+msgstr "Modifier"
+
+#: map/templates/base.html:34
+#: map/templates/map/flyerpatch_confirm_delete.html:4
+msgid "Löschen"
+msgstr "Supprimer"
+
+#: map/templates/map/flyerpatch_confirm_delete.html:17
+msgid "Zurück"
+msgstr "Retour"
+
+#: map/templates/map/flyerpatch_confirm_delete.html:18
+msgid "Löschen bestätigen"
+msgstr "Confirmer la suppression"
+
+#: map/templates/map/flyerpatch_form.html:5 map/templates/map/map_view.html:21
+msgid "Eintragen"
+msgstr "C’est parti !"
+
+#: map/templates/map/flyerpatch_form.html:10
+msgid ""
+"Klicke auf die Karte um dein Verteilgebiet einzuzeichnen. Ergänze "
+"anschliessend bitte die Anzahl verteilter Untersetzer und klicke auf "
+"“Abgeschlossen”."
+msgstr "Clique sur la carte pour tracer ta zone de distribution. Merci ajouter le nombre de dessous de verre distribués et cliquez sur \"complété\", une fois que as terminé."
+
+#: map/templates/map/flyerpatch_form.html:27
+#: map/templates/map/flyerpatch_update.html:26
+msgid "Abgeschlossen"
+msgstr "Complété"
+
+#: map/templates/map/flyerpatch_form.html:32
+#: map/templates/map/flyerpatch_update.html:38
+msgid "Speichern"
+msgstr "Enregistrer"
+
+#: map/templates/map/map_view.html:5
+msgid "Übersicht"
+msgstr "Aperçu"
+
+#: map/templates/map/map_view.html:19
+msgid "Anmelden"
+msgstr "Se connecter"

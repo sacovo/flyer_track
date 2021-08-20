@@ -8,7 +8,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
-from map.forms import PatchCreateForm
+from map.forms import PatchCreateForm, PatchUpdateForm
 from map.models import FlyerPatch
 
 # Create your views here.
@@ -16,7 +16,18 @@ from map.models import FlyerPatch
 
 def index(request):
     """show the map and tiles"""
-    return render(request, 'map/map_view.html', {})
+
+    highlightPk = request.GET.get('id', None)
+    ctx = {}
+
+    if highlightPk is not None:
+        obj = FlyerPatch.objects.get(pk=highlightPk)
+        p = obj.shape.centroid
+        ctx['object'] = obj
+        ctx['x'] = p.x
+        ctx['y'] = p.y
+
+    return render(request, 'map/map_view.html', ctx)
 
 
 class UserIsOwnerMixin(LoginRequiredMixin, UserPassesTestMixin):
@@ -38,18 +49,22 @@ class PatchCreateView(CreateView, LoginRequiredMixin):
 create_patch = PatchCreateView.as_view()
 
 
-class PatchDeleteView(DeleteView, UserIsOwnerMixin):
+class PatchDeleteView(UserIsOwnerMixin, DeleteView):
     model = FlyerPatch
+
+    success_url = reverse_lazy("map:index")
 
 
 delete_patch = PatchDeleteView.as_view()
 
 
-class PatchUpdateView(UpdateView, UserIsOwnerMixin):
+class PatchUpdateView(UserIsOwnerMixin, UpdateView):
     model = FlyerPatch
+    form_class = PatchUpdateForm
 
-    def test_func(self) -> Optional[bool]:
-        return self.request.user == self.get_object().owner
+    template_name = "map/flyerpatch_update.html"
+
+    success_url = reverse_lazy("map:index")
 
 
 update_patch = PatchUpdateView.as_view()

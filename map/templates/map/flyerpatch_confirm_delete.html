@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% load static i18n %}
+{% block title %}{% trans 'Löschen' %}{% endblock %}
+
+{% block highlight %}
+<div class="hidden" id="highlight" data-id="{{object.pk}}" data-color="orange" data-lat="" data-lng=""></div>
+{% endblock %}
+
+{% block content %}
+<div class="entryPanel">
+  <form id="createForm" action="" method="post">
+    <div class="hidden" id="patchId" data-id="{{object.pk}}"></div>
+    {% csrf_token %}
+    <div class="formInner">
+      {{form}}
+      <a class="btn" href="/">{% trans 'Zurück' %}</a>
+      <button class="btn" type="submit">{% trans 'Löschen bestätigen' %}</button>
+    </div>
+  </form>
+</div>
+{% endblock %} 

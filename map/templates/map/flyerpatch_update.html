@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+{% block title %}{% trans 'Bearbeiten' %}{% endblock %}
+
+{% block highlight %}
+<div class="hidden" id="highlight" data-id="{{object.pk}}" data-color="yellow" data-lat="" data-lng=""></div>
+{% endblock %}
+
+{% block content %}
+<div class="entryPanel">
+  <form id="createForm" action="" method="post">
+    {% csrf_token %}
+    <div class="formInner">
+      <div class="fields">
+        <div class="field">
+          {{ form.flyer_count.label }}
+          {{ form.flyer_count }}
+        </div>
+        <div class="field">
+          {{ form.date.label }}
+          {{ form.date }}
+        </div>
+        <div class="field">
+          <label>
+            {{ form.confirmed }}
+            {% trans 'Abgeschlossen' %}
+          </label>
+        </div>
+        <textarea
+          class="hidden"
+          id="id_shape"
+          class="vSerializedField required"
+          cols="150"
+          rows="10"
+          name="shape"
+          ></textarea>
+      </div>
+      <button class="btn" type="submit">{% trans 'Speichern' %}</button>
+    </div>
+  </form>
+</div>
+{% endblock %} 

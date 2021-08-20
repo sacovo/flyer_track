@@ -1,29 +1,35 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static i18n %}
 
 {% block title %}
-Eintragen
+{% trans 'Eintragen' %}
 {% endblock %}
 
 {% block content %}
 <div class="entryPanel">
-  <div class="info">Klicke auf die Karte um deinen Bereich einzutragen.</div>
+  <div class="info">{% trans 'Klicke auf die Karte um dein Verteilgebiet einzuzeichnen. Ergänze anschliessend bitte die Anzahl verteilter Untersetzer und klicke auf “Abgeschlossen”.' %}</div>
 
   <form id="createForm" action="" method="post">
     {% csrf_token %}
     <div class="formInner">
-    <div class="fields">
-      <div class="field">
-        {{form.flyer_count.label}}
-      {{form.flyer_count}}
+      <div class="fields">
+        <div class="field">
+          {{form.flyer_count.label}}
+          {{form.flyer_count}}
+        </div>
+        <div class="field">
+          {{form.date.label}}
+          {{form.date}}
+        </div>
+        <div class="field">
+          <label>
+            {{ form.confirmed }}
+            {% trans 'Abgeschlossen' %}
+          </label>
+        </div>
+        <textarea class="hidden" id="id_shape" class="vSerializedField required" cols="150" rows="10" name="shape"></textarea>
       </div>
-      <div class="field">
-        {{form.date.label}}
-      {{form.date}}
-      </div>
-      <textarea class="hidden" id="id_shape" class="vSerializedField required" cols="150" rows="10" name="shape"></textarea>
-    </div>
-    <button class="btn" type="submit">Speichern</button>
+      <button class="btn" type="submit">{% trans 'Speichern' %}</button>
     </div>
   </form>
 

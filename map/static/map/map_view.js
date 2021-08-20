@@ -28,17 +28,6 @@ function saveView() {
 map.on("zoomend", saveView);
 map.on("moveend", saveView);
 
-function loadView() {
-  if (window.sessionStorage.getItem("locationSaved")) {
-    map.setView(
-      JSON.parse(window.sessionStorage.getItem("mapCenter")),
-      window.sessionStorage.getItem("mapZoom")
-    );
-  } else {
-    handlePermission();
-  }
-}
-
 function onLocationFound(e) {
   if (locationMarker != null) {
     locationMarker.remove();
@@ -69,13 +58,27 @@ map.addControl(
   })
 );
 
+const userID = +document.getElementById("userId").dataset.id;
+
 let patchLayer = null;
 
 function onEachFeature(feature, layer) {
-  const popupContent = `<p>${feature.properties.flyer_count} Bierdeckel</p>`;
+  let popupContent = `<p><em><a href="/?id=${feature.properties.pk}">#${feature.properties.pk}</a></em>: ${feature.properties.flyer_count} ${i18n.objName}</p>`;
+
+  if (feature.properties.owner === userID) {
+    popupContent += `<p><a href="/delete/${feature.properties.pk}/">${i18n.delete}</a> | <a href="/update/${feature.properties.pk}/">${i18n.edit}</a> </p>`;
+  }
 
   layer.bindPopup(popupContent);
 }
+
+const highlight = document.getElementById("highlight");
+
+const highlightColor = highlight.dataset.color;
+const highlightId = highlight.dataset.id;
+const highlightLat = highlight.dataset.lat;
+const highlightLng = highlight.dataset.lng;
+
 const updatePatches = () => {
   const bounds = map.getBounds();
   const bbox = bounds.toBBoxString();
@@ -88,9 +91,30 @@ const updatePatches = () => {
       }
       patchLayer = L.geoJson(geoJson, {
         onEachFeature: onEachFeature,
+        style: function (feature) {
+          if (feature.properties.pk == highlightId) {
+            return { color: highlightColor, fillOpacity: 0.4, weight: 5 };
+          }
+          if (feature.properties.confirmed) {
+            return { color: "red", fillOpacity: 0.75 };
+          }
+          return { color: "red", fillOpacity: 0.25 };
+        },
       }).addTo(map);
     });
 };
 
 updatePatches();
+function loadView() {
+  if (highlightLat && highlightLng) {
+    map.setView({ lat: highlightLat, lng: highlightLng }, 17);
+  } else if (window.sessionStorage.getItem("locationSaved")) {
+    map.setView(
+      JSON.parse(window.sessionStorage.getItem("mapCenter")),
+      window.sessionStorage.getItem("mapZoom")
+    );
+  } else {
+    handlePermission();
+  }
+}
 loadView();

@@ -1,0 +1,99 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-08-20 15:44+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: map/models.py:10
+msgid "Eigentümer*in"
+msgstr ""
+
+#: map/models.py:11
+msgid "Bereich"
+msgstr ""
+
+#: map/models.py:13
+msgid "Anzahl Untersetzer"
+msgstr "Numero di sottobicchieri distribuiti"
+
+#: map/models.py:14
+msgid "Datum"
+msgstr "Data"
+
+#: map/models.py:16
+msgid "Status"
+msgstr ""
+
+#: map/models.py:18
+msgid "Wurden die Flyer bereits verteilt?"
+msgstr ""
+
+#: map/templates/base.html:14
+msgid "Verteilmap"
+msgstr ""
+
+#: map/templates/base.html:32
+msgid "Untersetzer"
+msgstr "sottobicchieri "
+
+#: map/templates/base.html:33 map/templates/map/flyerpatch_update.html:3
+msgid "Bearbeiten"
+msgstr "Modificare"
+
+#: map/templates/base.html:34
+#: map/templates/map/flyerpatch_confirm_delete.html:4
+msgid "Löschen"
+msgstr "Eliminare"
+
+#: map/templates/map/flyerpatch_confirm_delete.html:17
+msgid "Zurück"
+msgstr "Torna"
+
+#: map/templates/map/flyerpatch_confirm_delete.html:18
+msgid "Löschen bestätigen"
+msgstr "Confermare la cancellazione"
+
+#: map/templates/map/flyerpatch_form.html:5 map/templates/map/map_view.html:21
+msgid "Eintragen"
+msgstr "Ci siamo!"
+
+#: map/templates/map/flyerpatch_form.html:10
+msgid ""
+"Klicke auf die Karte um dein Verteilgebiet einzuzeichnen. Ergänze "
+"anschliessend bitte die Anzahl verteilter Untersetzer und klicke auf "
+"“Abgeschlossen”."
+msgstr ""
+"Clicca sulla carta per delimitare la tua zona di distribuzione."
+"Grazie di aggiungere il numero di sottobicchieri distribuiti e di cliccare in seguito su “completato” quando hai finito."
+
+#: map/templates/map/flyerpatch_form.html:27
+#: map/templates/map/flyerpatch_update.html:26
+msgid "Abgeschlossen"
+msgstr "Completato"
+
+#: map/templates/map/flyerpatch_form.html:32
+#: map/templates/map/flyerpatch_update.html:38
+msgid "Speichern"
+msgstr "Registrare"
+
+#: map/templates/map/map_view.html:5
+msgid "Übersicht"
+msgstr "Panoramica"
+
+#: map/templates/map/map_view.html:19
+msgid "Anmelden"
+msgstr "Entrare"
