@@ -14,8 +14,10 @@
     {% csrf_token %}
     <div class="formInner">
       {{form}}
+      <div class="buttons">
       <a class="btn" href="/">{% trans 'Zurück' %}</a>
       <button class="btn" type="submit">{% trans 'Löschen bestätigen' %}</button>
+      </div>
     </div>
   </form>
 </div>

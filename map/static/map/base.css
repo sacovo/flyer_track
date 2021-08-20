@@ -116,9 +116,15 @@ button.btn {
   max-width: 530px;
 
   /* Inline #8 | http://127.0.0.1:8000/delete/17/ */
+}
 
+.buttons {
   display: flex;
   flex-wrap: wrap;
+}
+
+.buttons > * {
+  margin-left: 0.4em;
 }
 
 .fields {
