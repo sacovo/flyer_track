@@ -76,7 +76,10 @@ msgid ""
 "Klicke auf die Karte um dein Verteilgebiet einzuzeichnen. Ergänze "
 "anschliessend bitte die Anzahl verteilter Untersetzer und klicke auf "
 "“Abgeschlossen”."
-msgstr "Clique sur la carte pour tracer ta zone de distribution. Merci ajouter le nombre de dessous de verre distribués et cliquez sur \"complété\", une fois que as terminé."
+msgstr ""
+"Clique sur la carte plusieurs fois pour tracer les points définissant ta zone de distribution. "
+"Merci d'ajouter le nombre de dessous de verre distribués et clique sur \"complété\" une fois que tu as terminé."
+
 
 #: map/templates/map/flyerpatch_form.html:27
 #: map/templates/map/flyerpatch_update.html:26
