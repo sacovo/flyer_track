@@ -23,7 +23,7 @@ RUN mkdir $APP_HOME
 
 RUN apt-get update && \
   apt-get install -y \
-    netcat gettext libyaml-dev libgdal-dev python-gdal \
+    netcat gettext libyaml-dev libgdal-dev python-gdal libmemcached-dev \
   && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
   && rm -rf /var/lib/apt/lists/*
 
