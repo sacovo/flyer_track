@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{% endblock %}
+
+
+{% block content %}
+<div class="buttons">
+  {% if not request.user.is_authenticated %}
+  <a class="btn" href="/auth/">Login</a>
+  {% else %}
+  <a class="btn" href="{% url 'map:create_patch' %}">Create</a>
+  {% endif %}
+  {% endblock %}
+</div>

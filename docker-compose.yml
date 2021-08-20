@@ -7,7 +7,7 @@ services:
       - 6379
   
   db:
-    image: "postgres:13"
+    image: postgis/postgis
     env_file:
       - .env
     volumes:
@@ -33,7 +33,7 @@ services:
       context: .
       dockerfile: ./Dockerfile
     # command: celery -A core worker --loglevel DEBUG
-    command: watchmedo auto-restart --directory=./ --pattern=*.py --recursive -- celery worker -A core worker --loglevel=DEBUG
+    command: watchmedo auto-restart --directory=./ --pattern=*.py --recursive -- celery -A core worker --loglevel=DEBUG
     volumes:
       - .:/home/app/web/
     env_file:

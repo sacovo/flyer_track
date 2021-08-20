@@ -42,8 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.gis',
     'django_celery_beat',
-    'demo',
+    'map',
 ]
 
 MIDDLEWARE = [
@@ -168,3 +169,12 @@ MEDIA_ROOT = '/media'
 STATIC_ROOT = '/static'
 
 LOCALE_PATHS = ['locale/']
+
+# Authentication
+AUTH_SERVER = env.str('AUTH_SERVER', default="http://auth.example.com")
+AUTH_CLIENT_ID = env.str("AUTH_CLIENT_ID", default="client_id")
+AUTH_CLIENT_SECRET = env.str("AUTH_CLIENT_SECRET", default="secret")
+
+AUTH_GET_USER_FUNCTION = 'core.auth:get_user_by_username'
+
+LOGIN_REDIRECT_URL = "/"

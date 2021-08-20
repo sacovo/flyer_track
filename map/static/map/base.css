@@ -1,0 +1,127 @@
+:root {
+  --red: #d20729;
+  --blue: #0087cc;
+  --red-gradient: linear-gradient(180deg, #f54966 0%, #d20729 100%);
+  --blue-gradient: linear-gradient(180deg, #70c0e9 0%, #0087cc 100%);
+  --white: #fff;
+  --black: #232323;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  overflow-x: hidden;
+  color: var(--black);
+
+  font-size: clamp(14px, 2vw, 18px);
+}
+
+html,
+body,
+#map {
+  height: 100%;
+  width: 100vw;
+  z-index: 1;
+}
+
+.leaflet-control-search .search-input {
+  width: 60vw;
+}
+
+.leaflet-control-search .search-tip {
+  max-width: 72vw;
+}
+
+.hidden {
+  display: none;
+}
+
+a.btn,
+button.btn {
+  font-size: 2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  background: var(--red-gradient);
+  border: none;
+  color: var(--white);
+  border-radius: 4px;
+  font-size: 1em;
+  font-weight: 800;
+  font-family: "Montserrat";
+  padding: 0.6em 1.8em;
+  text-decoration: none;
+  box-shadow: #00000069 0px 0px 8px 0px;
+}
+
+.controlPanel {
+  position: absolute;
+  bottom: 0;
+  z-index: 100;
+  width: 100%;
+  pointer-events: none;
+}
+
+.controlPanel > * {
+  pointer-events: all;
+}
+
+.buttons {
+  margin: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.entryPanel {
+  display: flex;
+  flex-direction: column;
+}
+
+.info {
+  background: lightgreen;
+  margin-bottom: 1em;
+  box-shadow: black 0px 0px 3px;
+
+  padding: 0.5em 0.9em;
+  max-width: 85%;
+  text-align: center;
+}
+
+#createForm {
+  background: lightgray;
+  width: 100%;
+  padding: 1em 0em;
+}
+
+.entryPanel {
+  align-items: center;
+}
+
+.entryPanel button.btn {
+  box-shadow: none;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.2em;
+}
+
+.formInner {
+  margin: 0 1em;
+  width: 80%;
+}
+
+.fields {
+  margin-bottom: 0.6em;
+}
+
+#createForm {
+  display: flex;
+  justify-content: center;
+}
+
+#id_flyer_count {
+  text-align: right;
+}

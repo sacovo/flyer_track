@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="{{ request.LANGUAGE_CODE }}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+                           integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+                           crossorigin=""/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css">
+    <script src="https://kit.fontawesome.com/e29b2b8f8c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/leaflet-search.css' %}"/>
+    <link rel="stylesheet" href="{% static 'map/base.css' %}"/>
+    <title>{% block title %}{% endblock %}</title>
+  </head>
+  <body>
+    <div id="map"></div>
+    <div class="hidden" id="bottomRightContent">
+    </div>
+    <div class="controlPanel">
+      {% block content %}
+      {% endblock %}
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+            integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+            crossorigin=""></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js"></script>
+    <script src="{% static 'js/Leaflet.Control.Custom.js' %}"></script>
+    <script src="{% static 'js/leaflet-search.min.js' %}"></script>
+
+    <script src="{% static 'map/map_view.js' %}"></script>
+    {% block script %}
+    {% endblock %}
+  </body>
+</html>

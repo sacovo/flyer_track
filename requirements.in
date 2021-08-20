@@ -12,3 +12,6 @@ django-celery-beat
 gunicorn
 watchdog
 PyYAML
+argh
+
+django-auth-oidc

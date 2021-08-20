@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="entryPanel">
+  <div class="info">Klicke auf die Karte um deinen Bereich einzutragen.</div>
+
+  <form id="createForm" action="" method="post">
+    {% csrf_token %}
+    <div class="formInner">
+    <div class="fields">
+      <div class="field">
+        {{form.flyer_count.label}}
+      {{form.flyer_count}}
+      </div>
+      <div class="field">
+        {{form.date.label}}
+      {{form.date}}
+      </div>
+      <textarea class="hidden" id="id_shape" class="vSerializedField required" cols="150" rows="10" name="shape"></textarea>
+    </div>
+    <button class="btn" type="submit">Submit</button>
+    </div>
+  </form>
+
+</div>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'map/mark_patch.js' %}"></script>
+{% endblock %}
