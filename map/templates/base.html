@@ -1,4 +1,4 @@
-{% load static i18n %}
+{% load static i18n l10n %}
 <!DOCTYPE html>
 <html lang="{{ request.LANGUAGE_CODE }}">
   <head>
@@ -18,7 +18,8 @@
   </head>
   <body>
     {% block highlight %}
-    <div class="hidden" id="highlight" data-id="" data-color="" data-lat="" data-lng=""></div>
+    <div class="hidden" id="highlight" data-id="{{object.pk}}" data-color="#0087cc" data-lat="{{y|unlocalize}}" data-lng="{{x|unlocalize}}"></div>
+    {{ extent|json_script:"extent" }}
     {% endblock %}
     <div id="map"></div>
     <div id="userId" data-id="{{request.user.pk}}" class="hidden"></div>

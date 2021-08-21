@@ -1,13 +1,15 @@
-var map = L.map("map", {
-  zoom: 10,
-  center: new L.latLng([46.8182, 8.2275]),
-});
+var map = L.map("map");
 
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution:
     '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
   maxZoom: 19,
 }).addTo(map);
+
+map.fitBounds([
+  [47.952483, 5.646172],
+  [45.847265, 11.192652],
+]);
 
 let locationMarker = null;
 
@@ -76,6 +78,7 @@ const highlight = document.getElementById("highlight");
 
 const highlightColor = highlight.dataset.color;
 const highlightId = highlight.dataset.id;
+const extent = JSON.parse(document.getElementById("extent").textContent);
 const highlightLat = highlight.dataset.lat;
 const highlightLng = highlight.dataset.lng;
 
@@ -96,9 +99,9 @@ const updatePatches = () => {
             return { color: highlightColor, fillOpacity: 0.4, weight: 5 };
           }
           if (feature.properties.confirmed) {
-            return { color: "red", fillOpacity: 0.75 };
+            return { color: "#d20729", fillOpacity: 0.75 };
           }
-          return { color: "red", fillOpacity: 0.25 };
+          return { color: "#d20729", fillOpacity: 0.25 };
         },
       }).addTo(map);
     });
@@ -106,8 +109,11 @@ const updatePatches = () => {
 
 updatePatches();
 function loadView() {
-  if (highlightLat && highlightLng) {
-    map.setView({ lat: highlightLat, lng: highlightLng }, 17);
+  if (extent) {
+    map.fitBounds([
+      [extent[1], extent[0]],
+      [extent[3], extent[2]],
+    ]);
   } else if (window.sessionStorage.getItem("locationSaved")) {
     map.setView(
       JSON.parse(window.sessionStorage.getItem("mapCenter")),

@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Any, Dict, Optional
 
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.core.serializers import serialize
@@ -14,6 +14,17 @@ from map.models import FlyerPatch
 # Create your views here.
 
 
+def populate_highlight(pk, ctx):
+    print("Hello World!")
+
+    obj = FlyerPatch.objects.get(pk=pk)
+    p = obj.shape.centroid
+    ctx['object'] = obj
+    ctx['x'] = p.x
+    ctx['y'] = p.y
+    ctx['extent'] = obj.shape.extent
+
+
 def index(request):
     """show the map and tiles"""
 
@@ -21,11 +32,7 @@ def index(request):
     ctx = {}
 
     if highlightPk is not None:
-        obj = FlyerPatch.objects.get(pk=highlightPk)
-        p = obj.shape.centroid
-        ctx['object'] = obj
-        ctx['x'] = p.x
-        ctx['y'] = p.y
+        populate_highlight(highlightPk, ctx)
 
     return render(request, 'map/map_view.html', ctx)
 
@@ -54,6 +61,11 @@ class PatchDeleteView(UserIsOwnerMixin, DeleteView):
 
     success_url = reverse_lazy("map:index")
 
+    def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
+        ctx = super().get_context_data(**kwargs)
+        populate_highlight(ctx['object'].pk, ctx)
+        return ctx
+
 
 delete_patch = PatchDeleteView.as_view()
 
@@ -65,6 +77,11 @@ class PatchUpdateView(UserIsOwnerMixin, UpdateView):
     template_name = "map/flyerpatch_update.html"
 
     success_url = reverse_lazy("map:index")
+
+    def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
+        ctx = super().get_context_data(**kwargs)
+        populate_highlight(ctx['object'].pk, ctx)
+        return ctx
 
 
 update_patch = PatchUpdateView.as_view()

@@ -5,14 +5,6 @@
 {% trans 'Übersicht' %}
 {% endblock %}
 
-{% block highlight %}
-{% if object %}
-<div class="hidden" id="highlight" data-id="{{object.pk}}" data-color="blue" data-lat="{{y|unlocalize}}" data-lng="{{x|unlocalize}}"></div>
-{% else %}
-{{block.super}}
-{% endif %}
-{% endblock %}
-
 {% block content %}
 <div class="buttons">
   {% if not request.user.is_authenticated %}

@@ -3,10 +3,6 @@
 {% load static i18n %}
 {% block title %}{% trans 'Löschen' %}{% endblock %}
 
-{% block highlight %}
-<div class="hidden" id="highlight" data-id="{{object.pk}}" data-color="orange" data-lat="" data-lng=""></div>
-{% endblock %}
-
 {% block content %}
 <div class="entryPanel">
   <form id="createForm" action="" method="post">
