@@ -139,3 +139,20 @@ button.btn {
 #id_flyer_count {
   text-align: right;
 }
+
+div.leaflet-bar:nth-child(3) {
+  display: flex;
+  flex-direction: row;
+}
+
+/* Inline #9 | http://127.0.0.1:8000/create/ */
+
+.btn-tooltip {
+  background: lightgreen;
+  margin-left: 1em;
+  padding: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: clamp(10px, 1.3vw, 12px);
+}
