@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-20 16:43+0000\n"
+"POT-Creation-Date: 2021-08-23 12:45+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -46,28 +46,32 @@ msgstr ""
 msgid "Verteilmap"
 msgstr ""
 
-#: map/templates/base.html:32
+#: map/templates/base.html:33
 msgid "Untersetzer"
 msgstr "sottobicchieri "
 
-#: map/templates/base.html:33 map/templates/map/flyerpatch_update.html:3
+#: map/templates/base.html:34 map/templates/map/flyerpatch_update.html:3
 msgid "Bearbeiten"
 msgstr "Modificare"
 
-#: map/templates/base.html:34
+#: map/templates/base.html:35
 #: map/templates/map/flyerpatch_confirm_delete.html:4
 msgid "Löschen"
 msgstr "Eliminare"
 
-#: map/templates/map/flyerpatch_confirm_delete.html:18
+#: map/templates/base.html:36
+msgid "Klicke hier um deine Klicks rückgängig zu machen."
+msgstr ""
+
+#: map/templates/map/flyerpatch_confirm_delete.html:14
 msgid "Zurück"
 msgstr "Torna"
 
-#: map/templates/map/flyerpatch_confirm_delete.html:19
+#: map/templates/map/flyerpatch_confirm_delete.html:15
 msgid "Löschen bestätigen"
 msgstr "Confermare la cancellazione"
 
-#: map/templates/map/flyerpatch_form.html:5 map/templates/map/map_view.html:21
+#: map/templates/map/flyerpatch_form.html:5 map/templates/map/map_view.html:13
 msgid "Eintragen"
 msgstr "Ci siamo!"
 
@@ -82,19 +86,22 @@ msgstr ""
 "su “completato” quando hai finito."
 
 #: map/templates/map/flyerpatch_form.html:32
-#: map/templates/map/flyerpatch_update.html:26
-msgid "Abgeschlossen"
+msgid "Abgeschlossen (Bierdeckel wurden verteilt)"
 msgstr "Completato"
 
 #: map/templates/map/flyerpatch_form.html:37
-#: map/templates/map/flyerpatch_update.html:38
+#: map/templates/map/flyerpatch_update.html:35
 msgid "Speichern"
 msgstr "Registrare"
+
+#: map/templates/map/flyerpatch_update.html:23
+msgid "Abgeschlossen"
+msgstr "Completato"
 
 #: map/templates/map/map_view.html:5
 msgid "Übersicht"
 msgstr "Panoramica"
 
-#: map/templates/map/map_view.html:19
+#: map/templates/map/map_view.html:11
 msgid "Anmelden"
 msgstr "Entrare"
