@@ -53,7 +53,8 @@ button.btn {
   text-decoration: none;
   box-shadow: #00000069 0px 0px 8px 0px;
 
-  margin-top: 0.2em;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .controlPanel {
@@ -114,13 +115,10 @@ button.btn {
   margin: 0 1em;
   width: 80%;
   max-width: 530px;
-
-  /* Inline #8 | http://127.0.0.1:8000/delete/17/ */
 }
 
 .buttons {
   display: flex;
-  flex-wrap: wrap;
 }
 
 .buttons > * {
@@ -145,8 +143,6 @@ div.leaflet-bar:nth-child(3) {
   flex-direction: row;
 }
 
-/* Inline #9 | http://127.0.0.1:8000/create/ */
-
 .btn-tooltip {
   background: lightgreen;
   margin-left: 1em;
@@ -155,4 +151,25 @@ div.leaflet-bar:nth-child(3) {
   justify-content: center;
   align-items: center;
   font-size: clamp(10px, 1.3vw, 12px);
+}
+
+.counter {
+  font-size: 1.3em;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.counter {
+  text-transform: uppercase;
+  border: none;
+  border-radius: 4px;
+  font-size: 1em;
+  font-weight: 800;
+  font-family: "Montserrat";
+  padding: 0.6em 0;
+  text-decoration: none;
+}
+
+.buttons {
+  justify-content: space-between;
 }

@@ -1,4 +1,5 @@
 from typing import Any, Dict, Optional
+from django.db.models import Sum
 
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.core.serializers import serialize
@@ -29,7 +30,9 @@ def index(request):
     """show the map and tiles"""
 
     highlightPk = request.GET.get('id', None)
-    ctx = {}
+    ctx = {
+        'total': FlyerPatch.objects.all().aggregate(s=Sum('flyer_count'))['s'],
+    }
 
     if highlightPk is not None:
         populate_highlight(highlightPk, ctx)
