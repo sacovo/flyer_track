@@ -12,7 +12,7 @@ astroid==2.6.6
     #   pylint-celery
 celery-stubs==0.1.2
     # via -r dev-requirements.in
-django==3.2.6
+django==3.2.23
     # via
     #   django-stubs
     #   django-stubs-ext
